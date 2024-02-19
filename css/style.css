@@ -1,0 +1,19 @@
+.topo {
+    background-color: var(--color-azul-claro);
+    padding: 10px;
+}
+
+.topo__marca {
+    color: var(--color-preto);
+    font-family: var(--font-bold);
+    margin-left: 50%;
+}
+
+.topo__titulo {
+    color: var(--color-azul-escuro);
+
+}
+
+
+
+

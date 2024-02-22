@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,130 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/e54953dbf5.js" crossorigin="anonymous"></script>
 
     <title>Pizzaria</title>
 </head>
+
 <body>
     <header class="topo">
         <h1 class="topo__marca">JS Pizzas <span class="topo__titulo ">Menu</span></h1>
     </header>
+
+    <main>
+        <section class="cards-area">
+            <div class="cards-area__card">
+                <img class="cards-area__img" src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela">
+                <button class="cards-area__botao-adicionar">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <span class="cards-area__preco">R$ 99,99</span>
+                <span class="cards-area__titulo">Muçarelo</span>
+                <p class="cards-area__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+                    impedit!
+                </p>
+            </div>
+            <div class="cards-area__card">
+                <img class="cards-area__img" src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela">
+                <button class="cards-area__botao-adicionar">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <span class="cards-area__preco">R$ 99,99</span>
+                <span class="cards-area__titulo">Muçarelo</span>
+                <p class="cards-area__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+                    impedit!
+                </p>
+            </div>
+            <div class="cards-area__card">
+                <img class="cards-area__img" src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela">
+                <button class="cards-area__botao-adicionar">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <span class="cards-area__preco">R$ 99,99</span>
+                <span class="cards-area__titulo">Muçarelo</span>
+                <p class="cards-area__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+                    impedit!
+                </p>
+            </div>
+            <div class="cards-area__card">
+                <img class="cards-area__img" src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela">
+                <button class="cards-area__botao-adicionar">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <span class="cards-area__preco">R$ 99,99</span>
+                <span class="cards-area__titulo">Muçarelo</span>
+                <p class="cards-area__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+                    impedit!
+                </p>
+            </div>
+            <div class="cards-area__card">
+                <img class="cards-area__img" src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela">
+                <button class="cards-area__botao-adicionar">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <span class="cards-area__preco">R$ 99,99</span>
+                <span class="cards-area__titulo">Muçarelo</span>
+                <p class="cards-area__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+                    impedit!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <address class="rodape__endereco">Endereço: Rua das Margaridas, 25 <br> Centro São Paulo</address>
+        <div class="rodape__social">
+            <span>Siga-nos nas redes sociais:</span>
+            <div class="rodape__icons">
+
+            </div>
+        </div>
+
+    </footer>
+
+    <div class="modal">
+        <img src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela" class="modal__img">
+        <div class="modal__detalhes">
+            <span class="modal__titulo">Muçarelo</span>
+            <p class="modal__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit!</p>
+            <span class="modal__texto texto--maiusculo">TAMANHO</span>
+            <div class="modal__tamanho-area">
+                <button>
+                    <span class="modal__texto modal__texto--negrito">Pequena</span>
+                    <span class="modal__texto">320g</span>
+                </button>
+                <button>
+                    <span class="modal__texto modal__texto--negrito">Média</span>
+                    <span class="modal__texto">530g</span>
+                </button>
+                <button>
+                    <span class="modal__texto modal__texto--negrito">Grande</span>
+                    <span class="modal__texto">860g</span>
+                </button>
+
+            </div>
+            <span class="modal__texto texto--maiusculo">PREÇO</span>
+            <div class="modal__preco-area">
+                <span class="modal__texto">R$ 99,99</span>
+                <div class="modal__controle-unidade">
+                    <button><i class="fa-solid fa-plus"></i></button>
+                    <span>1</span>
+                    <button><i class="fa-solid fa-minus"></i></button>
+                </div>
+            </div>
+
+            <div class="modal__btns-area">
+                <button class="botao botao--verde">
+                    Adicionar ao carrinho
+                </button>
+                <button class="botao botao--vermelho">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

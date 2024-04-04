@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./images/favicon-16x16.png" type="image/x-icon">
     <script src="./js/main.js" defer></script>
-    <script src="https://kit.fontawesome.com/e54953dbf5.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/e54953dbf5.js" crossorigin="anonymous"></script> -->
 
     <title>Pizzaria</title>
 </head>
@@ -80,7 +80,10 @@
         </section>
 
         <section class="carrinho">
-            <span class="carrinho__titulo">Suas Pizzas</span>
+            <div class="carrinho__header">
+                <span class="carrinho__titulo">Suas Pizzas</span>
+                <button class="carrinho__fechar">[X]</button>
+            </div>
             <div class="carrinho__item1">
                 <img src="./images/img-produto01.png" alt="Imagem da Pizza de Muçarela" class="carrinho__img">
                 <div class="carrinho__preco-area">
@@ -151,15 +154,15 @@
                 </p>
                 <span class="modal__texto texto--maiusculo">TAMANHO</span>
                 <div class="modal__tamanho-area">
-                    <button class="pequena">
+                    <button class="modal--pequena">
                         <span class="modal__texto modal__texto--negrito ">Pequena</span>
                         <span class="modal__texto">320g</span>
                     </button>
-                    <button class="media">
+                    <button class="modal--media">
                         <span class="modal__texto modal__texto--negrito">Média</span>
                         <span class="modal__texto">530g</span>
                     </button>
-                    <button class="grande">
+                    <button class="modal--grande">
                         <span class="modal__texto modal__texto--negrito">Grande</span>
                         <span class="modal__texto">860g</span>
                     </button>
@@ -176,10 +179,10 @@
                 </div>
 
                 <div class="modal__btns-area">
-                    <button class="botao botao--verde">
+                    <button id="modal__botao-adicionar" class="botao botao--verde">
                         Adicionar ao carrinho
                     </button>
-                    <button class="botao botao--vermelho">
+                    <button id="modal__botao-cancelar" class="botao botao--vermelho">
                         Cancelar
                     </button>
                 </div>

@@ -1,5 +1,6 @@
 main {
     display: flex;
+    min-width: 360px;
 }
 
 /* HEADER */
@@ -7,12 +8,17 @@ main {
 .topo {
     background-color: var(--color-azul-claro);
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 136px;
+    font-family: var(--font-bold);
+    font-size: 3rem;
+    min-width: 360px;
 }
 
 .topo__marca {
-    color: var(--color-preto);
-    font-family: var(--font-bold);
-    margin-left: 50%;
+    color: var(--color-preto);     
 }
 
 .topo__titulo {
@@ -411,5 +417,20 @@ main {
     background-color: rgb(48, 141, 64);
 }
 
+@media screen and (max-width: 440px){
+    :root {
+        font-size: 12px;
+    }
 
-
+    .rodape {
+        font-size: 12px;
+        flex-direction: column;
+        height: auto;
+        gap: 32px;
+        padding: 32px;
+    }
+    
+    .rodape__social {
+        order: -1;
+    }
+}

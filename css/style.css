@@ -433,4 +433,16 @@ main {
     .rodape__social {
         order: -1;
     }
+
+    .modal {
+        display: flex;
+        font-size: 12px;
+        flex-direction: column;
+        height: auto; 
+        gap: 8px;  
+    }
+
+    .modal__img {
+        width: 240px;
+    }   
 }

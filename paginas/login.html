@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - JS Pizzaria</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <header class="topo">
+        <h1 class="topo__marca">JS Pizzas <span class="topo__titulo ">Menu</span></h1>
+    </header>
+
+    <main>
+        <form class="formulario" action="./login.php" method="post">
+            <label class="formulario__elemento" for="nome">Nome</label>
+            <input class="formulario__elemento" type="text" name="nomeUsuario" id="nome">
+            <label class="formulario__elemento" for="senha">Senha</label>
+            <input class="formulario__elemento" type="password" name="senhaUsuario" id="senha">
+            <input class="formulario__elemento botao botao--verde" type="submit" value="Logar">
+        </form>
+    </main>
+
+    <footer class="rodape">
+        <address class="rodape__endereco">Endereço: Rua das Margaridas, 25 <br> Centro São Paulo</address>
+        <div class="rodape__social">
+            <span>Siga-nos nas redes sociais:</span>
+            <div class="rodape__icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+        <div>
+            <span>Desenvolvido por Noix <br> Soluções Digitais</span>
+        </div>
+
+    </footer>
+</body>
+</html>

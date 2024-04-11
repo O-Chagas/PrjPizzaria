@@ -1,5 +1,6 @@
 main {
     display: flex;
+    justify-content: center;
     min-width: 360px;
 }
 
@@ -125,6 +126,10 @@ main {
     gap: 64px;
     width: 672px;
     padding: 64px 64px;
+}
+
+#btn__cancelar--up {
+    display: none;
 }
 
 .modal__img {
@@ -434,15 +439,62 @@ main {
         order: -1;
     }
 
-    .modal {
+    .modal {        
         display: flex;
         font-size: 12px;
         flex-direction: column;
         height: auto; 
-        gap: 8px;  
+        gap: 8px;
+        align-items: center;
+        text-align: center;
     }
-
+  
     .modal__img {
         width: 240px;
-    }   
+    }
+
+    .modal__texto--negrito {       
+        font-size: 0;
+    }
+    
+    .modal--pequena::before {
+        content: "P";
+        font-size: 12px;
+        font-family: var(--font-bold);
+    }
+   
+    .modal--media::before {
+        content: "M";
+        font-size: 12px;
+        font-family: var(--font-bold);
+    }
+
+    .modal--grande::before {
+        content: "G";
+        font-size: 12px;
+        font-family: var(--font-bold);
+    }
+
+    .modal__btns-area {
+        height: auto;
+        font-size: 12px;
+    }
+
+    .modal__tamanho-area {
+        width: auto;
+    }
+
+    .modal__preco-area {
+        flex-direction: column;        
+    }
+
+    #btn__cancelar--up {
+        display: inline;
+        align-self: flex-end;
+    }
+
+    #btn__cancelar--down {
+        display: none;        
+    }
+   
 }

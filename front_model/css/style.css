@@ -1,5 +1,6 @@
 main {
     display: flex;
+    justify-content: center;
     min-width: 360px;
 }
 
@@ -444,5 +445,32 @@ main {
 
     .modal__img {
         width: 240px;
-    }   
+    }
+
+    .modal--pequena .modal__texto--negrito {       
+        font-size: 0;
+    }
+    
+    .modal--pequena .modal__texto--negrito::after {
+        content: "P";
+        font-size: 12px;
+    }
+
+    .modal--media .modal__texto--negrito {       
+        font-size: 0;
+    }
+    
+    .modal--media .modal__texto--negrito::after {
+        content: "M";
+        font-size: 12px;
+    }
+
+    .modal--grande .modal__texto--negrito {       
+        font-size: 0;
+    }
+    
+    .modal--grande .modal__texto--negrito::after {
+        content: "G";
+        font-size: 12px;
+    }
 }

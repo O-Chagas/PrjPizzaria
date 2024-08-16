@@ -1,10 +1,18 @@
 <?php
 require "./../config/config.php";
+
+if($_POST['btn-action']==="Alterar") {
+    echo "clicou no botão alterar";
+} else if ($_POST['btn-action']==="Excluir") {
+    echo "clicou no botão excluir";
+} else if ($_POST['btn-action']==="Buscar") {
+    echo "clicou no botão buscar";
+}
  
 $pizzaBuscada = filter_input(INPUT_POST,'pizzaBuscada');
  
 if ($pizzaBuscada) {
-    $sql=$pdo->prepare("SELECT * FROM pizza WHERE nomePizza=:pizzaBuscada");
+    $sql=$pdo->prepare("SELECT * FROM pizzas WHERE nomePizza=:pizzaBuscada");
     $sql->bindValue(":pizzaBuscada",$pizzaBuscada);
     $sql->execute();
  
@@ -34,7 +42,7 @@ else{
         <form action="./gerenciar_action.php" method="post">
             <div class="form-item">
                 <input type="text" name="pizzaBuscada" id="pizza-buscada">
-                <input type="submit" value="Buscar">
+                <input type="submit" name="btn-action" value="Buscar">
             </div>
             <div class="form-item">
                 <label for="nome-pizza">Nome da Pizza:</label>
@@ -55,8 +63,8 @@ else{
                 </textarea>
             </div>
             <div>
-                <input type="submit" value="Alterar">
-                <input type="submit" value="Excluir">
+                <input type="submit" name="btn-action" value="Alterar">
+                <input type="submit" name="btn-action" value="Excluir">
             </div>
         </form>
     </main>    

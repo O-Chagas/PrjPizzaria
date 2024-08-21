@@ -1,13 +1,30 @@
 <?php
-require "./../config/config.php";
+require __DIR__ ."/../config/config.php";
+$dado=[];
+
+if(isset($_POST["btn-action"])){
 
 if($_POST['btn-action']==="Alterar") {
     echo "clicou no botão alterar";
-} else if ($_POST['btn-action']==="Excluir") {
-    echo "clicou no botão excluir";
+} else if ($_POST['btn-action']==="Excluir") {   
+    if (isset($_COOKIE["pizzaBuscada"])) {
+        $sql = $pdo->prepare("DELETE FROM pizzas WHERE nomePizza=:pizzaBuscada");
+        $sql->bindValue(":pizzaBuscada", $pizzaBuscada);
+        $sql->execute();
+        setcookie("pizzaBuscad", "", time()-3600);
+        header("Location: gerenciar.php");
+        exit;
+
+        echo "Pizza excluída com sucesso";
+        
+    } else {
+        header("Location: gerenciar.php");
+        exit;
+    }
+    
 } else if ($_POST['btn-action']==="Buscar") {
     echo "clicou no botão buscar";
-}
+
  
 $pizzaBuscada = filter_input(INPUT_POST,'pizzaBuscada');
  
@@ -17,7 +34,9 @@ if ($pizzaBuscada) {
     $sql->execute();
  
     if($sql->rowCount() > 0){
-        $dado = $sql->fetch(PDO::FETCH_ASSOC);              
+        $dado = $sql->fetch(PDO::FETCH_ASSOC);
+        setcookie("pizzaBuscada", $pizzaBuscada, time()+3600);
+                    
     }
     else {
         header("Location: gerenciar.php");
@@ -27,6 +46,8 @@ if ($pizzaBuscada) {
 else{
     header("Location: gerenciar.php");
     exit;
+}
+}
 }
 ?>
  
@@ -46,20 +67,20 @@ else{
             </div>
             <div class="form-item">
                 <label for="nome-pizza">Nome da Pizza:</label>
-                <input type="text" name="nomePizza" id="nome-pizza" value=<?=$dado['nomePizza'];?>>
+                <input type="text" name="nomePizza" id="nome-pizza" value=<?= isset($dado["nomePizza"]) ? $dado["nomePizza"]:"";?>>
                 <!-- a chave do array nomePizza é o nome da coluna que veio do BD-->
             </div>
             <div class="form-item">
                 <label for="valor-pizza">Valor R$:</label>
-                <input type="text" name="valorPizza" id="valor-pizza" value=<?=$dado['valor'];?>>
+                <input type="text" name="valorPizza" id="valor-pizza" value=<?= isset($dado["valor"]) ? $dado["valor"]:"";?>>
             </div>
             <div class="form-item">
                 <label for="tamanho-pizza">Tamanho:</label>
-                <input type="text" name="tamanhoPizza" id="tamanho-pizza" value=<?=$dado['tamanho'];?>>
+                <input type="text" name="tamanhoPizza" id="tamanho-pizza" value=<?= isset($dado["tamanho"]) ? $dado["tamanho"]:"";?>>
             </div>
             <div class="form-item">
                 <label for="descricao-pizza">Descrição:</label>
-                <textarea name="descricaoPizza" id="descricao" cols="50" rows="10"><?=$dado['descricao'];?>
+                <textarea name="descricaoPizza" id="descricao" cols="50" rows="10"><?= isset($dado["descricao"]) ? $dado["descricao"]:"";?>
                 </textarea>
             </div>
             <div>

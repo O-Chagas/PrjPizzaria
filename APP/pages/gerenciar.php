@@ -1,5 +1,5 @@
 <?php
- 
+ require __DIR__ . "/partials/header.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -13,7 +13,7 @@
         <form action="./gerenciar_action.php" method="post">
             <div class="form-item">
                 <input type="text" name="pizzaBuscada" id="pizza-buscada">
-                <input type="submit" value="Buscar">
+                <input type="submit" name="btn-action" value="Buscar">
             </div>
             <div class="form-item">
                 <label for="nome-pizza">Nome da Pizza:</label>
@@ -32,8 +32,8 @@
                 <textarea name="descricaoPizza" id="descricao" cols="50" rows="10"></textarea>
             </div>
             <div>
-                <input type="submit" value="Alterar">
-                <input type="submit" value="Excluir">
+                <input type="submit" name="btn-action" value="Alterar">
+                <input type="submit" name="btn-action" value="Excluir">
             </div>
         </form>
     </main>    

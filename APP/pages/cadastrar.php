@@ -1,5 +1,5 @@
 <?php
-require "./partials/header.php";
+require __DIR__ . "/partials/header.php";
 ?>
 
 <form action="./cadastrar_action.php" method="post">

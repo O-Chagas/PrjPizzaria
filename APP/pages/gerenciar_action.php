@@ -2,16 +2,42 @@
 require __DIR__ ."/../config/config.php";
 $dado=[];
 
+
+
 if(isset($_POST["btn-action"])){
 
 if($_POST['btn-action']==="Alterar") {
-    echo "clicou no botão alterar";
-} else if ($_POST['btn-action']==="Excluir") {   
+
+    $nome = filter_input(INPUT_POST, 'nomePizza', FILTER_SANITIZE_FULL_SPECIAL_CHARS);    
+    $tamanho = filter_input(INPUT_POST, 'tamanhoPizza', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $valor = filter_input(INPUT_POST, 'valorPizza', FILTER_VALIDATE_FLOAT);
+    $descricao = filter_input(INPUT_POST, 'descricaoPizza', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    if (isset($_COOKIE["pizzaBuscada"])) {
+   
+        $sql = $pdo->prepare("UPDATE pizzas SET nomePizza = :nomePizza, pathFoto = :pathFoto, valor = :valorPizza, tamanho = :tamanhoPizza, descricao = :descricaoPizza 
+                                WHERE nomePizza=:pizzaBuscada");   
+               
+        $sql->bindValue(":nomePizza", $nome); 
+        $sql->bindValue(":pathFoto", "images/foto1.png");        
+        $sql->bindValue(":valorPizza", $valor);
+        $sql->bindValue(":tamanhoPizza", $tamanho);
+        $sql->bindValue(":descricaoPizza", $descricao);
+        $sql->bindValue(":pizzaBuscada", $_COOKIE["pizzaBuscada"]);
+        $sql ->execute();
+        setcookie("pizzaBuscada", "", time()-3600);
+     
+     header("Location: gerenciar.php");
+     exit;
+    }
+    
+}     
+else if ($_POST['btn-action']==="Excluir") {   
     if (isset($_COOKIE["pizzaBuscada"])) {
         $sql = $pdo->prepare("DELETE FROM pizzas WHERE nomePizza=:pizzaBuscada");
-        $sql->bindValue(":pizzaBuscada", $pizzaBuscada);
+        $sql->bindValue(":pizzaBuscada", $_COOKIE["pizzaBuscada"]);
         $sql->execute();
-        setcookie("pizzaBuscad", "", time()-3600);
+        setcookie("pizzaBuscada", "", time()-3600);
         header("Location: gerenciar.php");
         exit;
 
@@ -62,6 +88,7 @@ else{
     <main>
         <form action="./gerenciar_action.php" method="post">
             <div class="form-item">
+                <input type="hidden" name="pizzaQueFoiBuscada" value=<?= isset($_POST["pizzaBuscada"]) ? $_POST ["pizzaBuscada"] : "";?>>
                 <input type="text" name="pizzaBuscada" id="pizza-buscada">
                 <input type="submit" name="btn-action" value="Buscar">
             </div>
